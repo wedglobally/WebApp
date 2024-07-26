@@ -17,7 +17,7 @@ import { SoftUIControllerProvider } from "context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter basename="WedGlobally">
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
     <SoftUIControllerProvider>
       <App />
     </SoftUIControllerProvider>
