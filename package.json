@@ -1,11 +1,12 @@
 {
   "name": "WedGlobally",
   "version": "4.0.1",
-  "homepage": "https://{wedglobally}.github.io/{WebApp}",
+  "homepage": "https://wedglobally.github.io/WebApp",
   "author": "Arun",
   "description": "by WedGlobally",
   "repository": {
-    "type": "git"
+    "type": "git",
+    "url": "https://github.com/your-repo-url.git"
   },
   "dependencies": {
     "@coreui/react": "^5.1.0",
@@ -21,23 +22,22 @@
     "animate.css": "^4.1.1",
     "axios": "^1.7.2",
     "bootstrap": "^5.3.3",
-    "chart.js": "3.9.1",
+    "chart.js": "^4.2.1",
     "chroma-js": "2.4.2",
     "firebase": "^10.12.4",
     "jquery": "^3.7.1",
     "prop-types": "15.8.1",
-    "react": ">=16.8.0",
+    "react": "^18.3.1",
     "react-bootstrap": "^1.6.8",
-    "react-chartjs-2": "3.0.5",
+    "react-chartjs-2": "^5.1.0",
     "react-countup": "6.4.2",
-    "react-dom": ">=16.8.0",
+    "react-dom": "^18.3.1",
     "react-firebase-hooks": "^5.1.1",
     "react-flatpickr": "3.10.13",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "6.11.1",
     "react-scripts": "5.0.1",
     "react-slick": "^0.30.2",
-    "react-swipeable-views": "^0.14.0",
     "slick-carousel": "^1.8.1",
     "stylis": "4.2.0",
     "stylis-plugin-rtl": "2.1.1",
@@ -73,7 +73,6 @@
     ]
   },
   "devDependencies": {
-    "ajv": "^7.2.4",
     "eslint": "8.40.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-plugin-import": "2.27.5",
@@ -84,8 +83,8 @@
     "prettier": "2.8.8"
   },
   "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "overrides": {
     "svgo": "3.0.2"

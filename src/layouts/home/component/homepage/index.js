@@ -1,21 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../../../firebase";
-import { Navigate, useNavigate } from 'react-router-dom';
 
-import { Grid, Box, Typography, TextField, Container } from "@mui/material";
-import Pagination from "@mui/material/Pagination";
-import SoftInput from "components/SoftInput";
-import SoftButton from "components/SoftButton";
-import ProfileInfoCard from "examples/Cards/InfoCards/ProfileInfoCard";
-import SoftTypography from "components/SoftTypography";
-import SoftBox from "components/SoftBox";
+import { Container } from "@mui/material";
 import 'animate.css/animate.min.css';
+import bride from "../../../../assets/websiteasset/img/bride.jpg";
 import carousel1 from "../../../../assets/websiteasset/img/carousel-1.jpg";
 import carousel2 from "../../../../assets/websiteasset/img/carousel-2.jpg";
 import carousel3 from "../../../../assets/websiteasset/img/carousel-3.png";
 import tampbg1 from "../../../../assets/websiteasset/img/tamp-bg-1.png";
-import bride from "../../../../assets/websiteasset/img/bride.jpg";
 
 import Groom from "../../../../assets/websiteasset/img/Groom.jpg";
 import Groomsmen1 from "../../../../assets/websiteasset/img/Groomsmen-1.png";
@@ -41,8 +34,6 @@ import gallery8 from "../../../../assets/websiteasset/img/gallery-8.jpg";
 
 
 import weddingbg from "../../../../assets/websiteasset/img/wedding-bg.png";
-import weddingdatebg from "../../../../assets/websiteasset/img/wedding-date-bg.jpg";
-import footer from "../../../../assets/websiteasset/img/footer-bg.jpg";
 
 import bridesmaid1 from "../../../../assets/websiteasset/img/bridesmaid-1.png";
 import bridesmaid3 from "../../../../assets/websiteasset/img/bridesmaid-3.png";
@@ -52,14 +43,13 @@ import about1 from "../../../../assets/websiteasset/img/about-1.jpg";
 import bridesmaidteam2 from "../../../../assets/websiteasset/img/bridesmaid-team-2.png";
 import team1bg from "../../../../assets/websiteasset/img/team-1-bg.png";
 
-import $ from 'jquery';
 
 
-import "../../../../assets/websiteasset/css/bootstrap.min.css";
-import "../../../../assets/websiteasset/lib/lightbox/css/lightbox.min.css";
-import "../../../../assets/websiteasset/lib/animate/animate.min.css";
-import "../../../../assets/websiteasset/css/style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "../../../../assets/websiteasset/css/bootstrap.min.css";
+import "../../../../assets/websiteasset/css/style.css";
+import "../../../../assets/websiteasset/lib/animate/animate.min.css";
+import "../../../../assets/websiteasset/lib/lightbox/css/lightbox.min.css";
 
 
 
@@ -89,7 +79,7 @@ const WeddingMatchmakingHome = () => {
   };
 
   const handleSignInClick=()=>{
-    const navigate = useNavigate();
+   // const navigate = useNavigate();
     // Conditionally redirect based on user state
   };
   return (
