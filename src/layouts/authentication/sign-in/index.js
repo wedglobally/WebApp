@@ -1,7 +1,7 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 // react-router-dom components
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // @mui material components
 import Switch from "@mui/material/Switch";
@@ -13,13 +13,12 @@ import SoftBox from "components/SoftBox";
 import SoftTypography from "components/SoftTypography";
 import SoftInput from "components/SoftInput";
 import SoftButton from "components/SoftButton";
-import AuthService from "../../../services/Authentication";
+
 // Authentication layout components
 import CoverLayout from "layouts/authentication/components/CoverLayout";
 
 // Images
 import curved9 from "../../../assets/websiteasset/img/gallery-1.jpg";
-import { Password } from "@mui/icons-material";
 import Socials from "layouts/authentication/components/Socials";
 import Button from "layouts/home/component/header/components/button/Button";
 
@@ -27,25 +26,30 @@ function SignIn() {
   const [rememberMe, setRememberMe] = useState(true);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
 
   const handleClick = () => {
-    const emailValue = document.querySelector('input[type="email"]').value;
-    const password = document.querySelector('input[type="password"]').value;
+    // Hardcoded username and password for testing purposes
+    const testEmail = "test";
+    const testPassword = "test";
 
-    if (!emailValue || !password) {
+    if (!email || !password) {
       setSnackbarMessage("Please fill in all fields");
       setSnackbarOpen(true);
       return;
     }
 
-    const person = {
-      emailValue,
-      password
-    };
-    const myClassInstance = new AuthService();
-    myClassInstance.handleSignIn(person);
+    if (email === testEmail && password === testPassword) {
+      navigate("/dashboard"); // Redirect to dashboard
+    } else {
+      setSnackbarMessage("Invalid username or password");
+      setSnackbarOpen(true);
+    }
   };
 
   const handleSnackbarClose = () => {
@@ -70,7 +74,12 @@ function SignIn() {
               Email
             </SoftTypography>
           </SoftBox>
-          <SoftInput type="email" placeholder="Email" />
+          <SoftInput
+            type="text"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </SoftBox>
         <SoftBox mb={2}>
           <SoftBox mb={1} ml={0.5}>
@@ -83,7 +92,12 @@ function SignIn() {
               Password
             </SoftTypography>
           </SoftBox>
-          <SoftInput type="password" placeholder="Password"/>
+          <SoftInput
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </SoftBox>
         <SoftBox display="flex" alignItems="center">
           <Switch checked={rememberMe} onChange={handleSetRememberMe} />
