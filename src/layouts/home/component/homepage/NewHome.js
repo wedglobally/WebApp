@@ -26,24 +26,7 @@ import corousel3 from "../../../../assets/websiteasset/img/carousel-3.png";
 
 
 
-const menuItems = [
-  { label: 'Home', href: '/wedglobally', className: 'active' },
-  { label: 'Our Products', href: '/wedglobally', className: 'active' },
-  { label: 'Timeline', href: '#weddingTimeline' },
-  { label: 'Gallery', href: '#weddingGallery' },
-  {
-    label: 'About Us',
-    subMenu: [
-      { label: 'Vision & Purpose', href: '/wedglobally/about/vision-purpose' },
-      { label: 'Key Journey', href: '/wedglobally/about/key-journey' },
-      { label: 'Key People', href: '/wedglobally/about/key-people' },
-      { label: 'Board of Directors', href: '/wedglobally/about/board-of-directors' },
-      { label: 'Investors', href: '/wedglobally/about/investors' },
-      { label: 'About Us', href: '/wedglobally/about' },
-    ],
-  },
-  { label: 'Contact Us', href: '/wedglobally/contactus' }
-];
+
 const NewHome = () => {
     const settings = {
         dots: true,

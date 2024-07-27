@@ -190,7 +190,7 @@ const WeddingMatchmakingHome = () => {
               <div className="navbar-nav mx-auto border-top">
                 <a
                   className="nav-item nav-link active"
-                  href="#weddingHome"
+                  href="/dashboard"
                 >
                   Home
                 </a>

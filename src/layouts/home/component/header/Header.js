@@ -7,22 +7,22 @@ import '../header/Header.css'
 import WedGloballyMenu from './menu'
 
 const menuItems = [
-    { label: 'Home', href: '/wedglobally', className: 'active' },
+    { label: 'Home', href: '/WedGlobally/', className: 'active' },
     { label: 'Our Products', href: '/wedglobally', className: 'active' },
     { label: 'Timeline', href: '#weddingTimeline' },
     { label: 'Gallery', href: '#weddingGallery' },
     {
       label: 'About Us',
       subMenu: [
-        { label: 'Vision & Purpose', href: '/wedglobally/about/vision-purpose' },
-        { label: 'Key Journey', href: '/wedglobally/about/key-journey' },
-        { label: 'Key People', href: '/wedglobally/about/key-people' },
-        { label: 'Board of Directors', href: '/wedglobally/about/board-of-directors' },
-        { label: 'Investors', href: '/wedglobally/about/investors' },
-        { label: 'About Us', href: '/wedglobally/about' },
+        { label: 'Vision & Purpose', href: '/WedGlobally/about/vision-purpose' },
+        { label: 'Key Journey', href: '/WedGlobally/about/key-journey' },
+        { label: 'Key People', href: '/WedGlobally/about/key-people' },
+        { label: 'Board of Directors', href: '/WedGlobally/about/board-of-directors' },
+        { label: 'Investors', href: '/WedGlobally/about/investors' },
+        { label: 'About Us', href: '/WedGlobally/about' },
       ],
     },
-    { label: 'Contact Us', href: '/wedglobally/contactus' },
+    { label: 'Contact Us', href: '/WedGlobally/contactus' },
   ];
 export default function WedGloballyHeader() {
     window.onscroll = function (e) {
