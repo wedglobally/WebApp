@@ -18,10 +18,10 @@ import { SoftUIControllerProvider } from "context";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-  <HashRouter basename={process.env.PUBLIC_URL}>
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
     <SoftUIControllerProvider>
       <App />
     </SoftUIControllerProvider>
-  </HashRouter>
+  </BrowserRouter>
   </React.StrictMode>
 );
