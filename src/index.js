@@ -18,26 +18,14 @@ import App from "App";
 // WedGlobally React Context Provider
 import { SoftUIControllerProvider } from "context";
 
-// const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(
-//   <React.StrictMode>
-//   <BrowserRouter basename={process.env.PUBLIC_URL}>
-//     <SoftUIControllerProvider>
-//       <App />
-//     </SoftUIControllerProvider>
-//   </BrowserRouter>
-//   </React.StrictMode>
-// );
-
-const router = createHashRouter([
-  {
-    path: "/*",
-    element: <App />,
-  }
-]);
-
-ReactDOM.createRoot(document.getElementById('root')).render(
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <SoftUIControllerProvider>
+      <App />
+    </SoftUIControllerProvider>
+  </BrowserRouter>
   </React.StrictMode>
 );
+
