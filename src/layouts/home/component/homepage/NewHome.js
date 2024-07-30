@@ -1,24 +1,9 @@
-import React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
-import { styled } from '@mui/system';
-import DashboardLayout from 'examples/LayoutContainers/DashboardLayout';
-import DashboardNavbar from 'examples/Navbars/DashboardNavbar';
-import Footer from 'examples/Footer';
-import WedGloballyHeader from '../header/Header';
-import WedGloballyFooter from '../footer/Footer';
-import { Slider } from '@mui/material';
-import SwipeableTextMobileStepper from '../corousel';
-import BaseLayout from 'layouts/virtual-reality/components/BaseLayout';
 import SoftBox from 'components/SoftBox';
-import HeroSection from '../hero_section/HeroSection';
-import WedGloballyHeroSection from '../hero_section/HeroSection';
-import WedGloballyIndex from '../section/Index';
 import WedgloballyFutureSection from '../feature-section/Index';
+import WedGloballyFooter from '../footer/Footer';
+import WedGloballyHeader from '../header/Header';
 import WedgloballyPeopleSection from '../people-section/Index';
-import backgroundImage from "../../../../assets/websiteasset/img/wedding-bg.png";
+import WedGloballyIndex from '../section/Index';
 
 import corousel1 from "../../../../assets/websiteasset/img/carousel-1.jpg";
 import corousel2 from "../../../../assets/websiteasset/img/carousel-2.jpg";
