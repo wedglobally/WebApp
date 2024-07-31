@@ -26,6 +26,7 @@ import AboutUs from "layouts/website/aboutus/aboutus";
 import ContactUs from "layouts/website/contactus/contactus";
 import ActivitySummary from "layouts/dashboard/components/ActivitySummary/activitysummary";
 import MySearches from "layouts/dashboard/components/MySearches/mysearches";
+import ServiceDetail from "layouts/marketplace/components/servicedetails";
 
 
 
@@ -138,6 +139,8 @@ export default function App() {
           <Route path="/authentication/sign-in" element={user ? <Navigate to="/dashboard" /> : <SignIn />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contactus" element={<ContactUs />} />
+          <Route path="/service/:serviceId" element={<ServiceDetail />} />
+
           {/* <Route path="/dashboard/activitysummary" element={<ActivitySummary />} />
         <Route path="/dashboard/mysearches" element={<MySearches />} /> */}
         </Routes>
@@ -165,6 +168,8 @@ export default function App() {
         <Route path="/authentication/sign-in" element={user ? <Navigate to="/dashboard" /> : <SignIn />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contactus" element={<ContactUs />} />
+        <Route path="/service/:serviceId" element={<ServiceDetail />} />
+
         {/* <Route path="/dashboard/activitysummary" element={<ActivitySummary />} />
         <Route path="/dashboard/mysearches" element={<MySearches />} /> */}
 

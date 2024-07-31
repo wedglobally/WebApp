@@ -1,21 +1,7 @@
-/**
-=========================================================
-* WedGlobally React - v4.0.1
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/WedGlobally
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
 import React, { useState } from "react";
 
 // react-router-dom components
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
@@ -30,17 +16,22 @@ import SoftBox from "components/SoftBox";
 import SoftTypography from "components/SoftTypography";
 import SoftButton from "components/SoftButton";
 import SoftAvatar from "components/SoftAvatar";
-import { Switch } from "@mui/material";
 
-function DefaultProjectCard({ image, label, title, description, action, authors }) {
-
+function DefaultProjectCard({ image, label, title, description, action, authors, showInterested }) {
   const [interested, setInterested] = useState(false);
+  const navigate = useNavigate();
 
-  // const handleToggleInterested = () => {
-  //   setInterested(!interested);
-  // };
-  const handleToggleInterested = () => {
+  const handleToggleInterested = (event) => {
+    event.stopPropagation(); // Prevent the click event from triggering the card click
     setInterested(!interested);
+  };
+
+  const handleCardClick = () => {
+    if (action.type === "internal") {
+      navigate(action.route);
+    } else {
+      window.open(action.route, "_blank");
+    }
   };
 
   const renderAuthors = authors.map(({ image: media, name }) => (
@@ -65,12 +56,14 @@ function DefaultProjectCard({ image, label, title, description, action, authors 
 
   return (
     <Card
+      onClick={handleCardClick}
       sx={{
         display: "flex",
         flexDirection: "column",
         backgroundColor: "transparent",
         boxShadow: "none",
         overflow: "visible",
+        cursor: "pointer", // Add cursor style for clickable feedback
       }}
     >
       <SoftBox position="relative" width="100.25%" shadow="xl" borderRadius="xl">
@@ -100,27 +93,9 @@ function DefaultProjectCard({ image, label, title, description, action, authors 
           </SoftTypography>
         </SoftBox>
         <SoftBox mb={1}>
-          {action.type === "internal" ? (
-            <SoftTypography
-              component={Link}
-              to={action.route}
-              variant="h5"
-              textTransform="capitalize"
-            >
-              {title}
-            </SoftTypography>
-          ) : (
-            <SoftTypography
-              component="a"
-              href={action.route}
-              target="_blank"
-              rel="noreferrer"
-              variant="h5"
-              textTransform="capitalize"
-            >
-              {title}
-            </SoftTypography>
-          )}
+          <SoftTypography variant="h5" textTransform="capitalize">
+            {title}
+          </SoftTypography>
         </SoftBox>
         <SoftBox mb={3} lineHeight={0}>
           <SoftTypography variant="button" fontWeight="regular" color="text">
@@ -135,6 +110,7 @@ function DefaultProjectCard({ image, label, title, description, action, authors 
               variant="outlined"
               size="small"
               color={action.color}
+              onClick={(event) => event.stopPropagation()} // Prevent card click
             >
               {action.label}
             </SoftButton>
@@ -147,28 +123,23 @@ function DefaultProjectCard({ image, label, title, description, action, authors 
               variant="outlined"
               size="small"
               color={action.color}
+              onClick={(event) => event.stopPropagation()} // Prevent card click
             >
               {action.label}
             </SoftButton>
           )}
           <SoftBox display="flex">{renderAuthors}</SoftBox>
-          <SoftButton
-          variant={interested ? "contained" : "outlined"}
-          color="primary"
-          onClick={handleToggleInterested}
-          sx={{ marginLeft: "auto" }}
-        >
-          {interested ? "Interested" : "Interested"}
-        </SoftButton>
-        {/* <Switch
-          checked={interested}
-          onChange={handleToggleInterested}
-          inputProps={{ 'aria-label': 'interested' }}
-          sx={{ ml: 'auto' }}
-          color="secondary"
-        /> */}
+          {showInterested && (
+            <SoftButton
+              variant={interested ? "contained" : "outlined"}
+              color="primary"
+              onClick={handleToggleInterested}
+              sx={{ marginLeft: "auto" }}
+            >
+              {interested ? "Interested" : "Interested"}
+            </SoftButton>
+          )}
         </SoftBox>
-        
       </SoftBox>
     </Card>
   );
@@ -177,6 +148,7 @@ function DefaultProjectCard({ image, label, title, description, action, authors 
 // Setting default values for the props of DefaultProjectCard
 DefaultProjectCard.defaultProps = {
   authors: [],
+  showInterested: false, // Default to not showing the "Interested" button
 };
 
 // Typechecking props for the DefaultProjectCard
@@ -202,6 +174,7 @@ DefaultProjectCard.propTypes = {
     label: PropTypes.string.isRequired,
   }).isRequired,
   authors: PropTypes.arrayOf(PropTypes.object),
+  showInterested: PropTypes.bool, // Prop to toggle the display of the "Interested" button
 };
 
 export default DefaultProjectCard;

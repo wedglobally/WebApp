@@ -60,6 +60,7 @@ const PaginatedProfileList = () => {
               description={card.description}
               action={card.action}
               authors={card.authors}
+              showInterested={true} 
             />
           </Grid>
         ))}

@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/WedGlobally/static/css/main.d2690647.css",
-    "main.js": "/WedGlobally/static/js/main.5d58af45.js",
+    "main.css": "/WedGlobally/static/css/main.1018ebe2.css",
+    "main.js": "/WedGlobally/static/js/main.ead39801.js",
     "static/media/home-decor-3.jpg": "/WedGlobally/static/media/home-decor-3.74d13fcbd3c631fc7908.jpg",
     "static/media/home-decor-2.jpg": "/WedGlobally/static/media/home-decor-2.b4e5397c9846645ba275.jpg",
     "static/media/home-decor-1.jpg": "/WedGlobally/static/media/home-decor-1.05e218fd495ccc65c99d.jpg",
@@ -69,11 +69,11 @@
     "static/media/logo-atlassian.svg": "/WedGlobally/static/media/logo-atlassian.f2b0e8570a4b4ce768854ff3dad1a6e1.svg",
     "static/media/logo-webdev.svg": "/WedGlobally/static/media/logo-webdev.25d88bfc768c8439fdb33efc0d8e6015.svg",
     "static/media/slick.woff": "/WedGlobally/static/media/slick.295183786cd8a1389865.woff",
-    "main.d2690647.css.map": "/WedGlobally/static/css/main.d2690647.css.map",
-    "main.5d58af45.js.map": "/WedGlobally/static/js/main.5d58af45.js.map"
+    "main.1018ebe2.css.map": "/WedGlobally/static/css/main.1018ebe2.css.map",
+    "main.ead39801.js.map": "/WedGlobally/static/js/main.ead39801.js.map"
   },
   "entrypoints": [
-    "static/css/main.d2690647.css",
-    "static/js/main.5d58af45.js"
+    "static/css/main.1018ebe2.css",
+    "static/js/main.ead39801.js"
   ]
 }
