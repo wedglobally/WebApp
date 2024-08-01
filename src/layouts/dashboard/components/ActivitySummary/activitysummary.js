@@ -36,7 +36,6 @@ const ActivitySummary = () => {
   }, []);
 
   return (
-    <DashboardLayout>
     <Box sx={{ padding: 2 }}>
       <Grid container spacing={3}>
         {/* Activity Summary */}
@@ -156,7 +155,6 @@ const ActivitySummary = () => {
         </Grid>
       </Grid>
     </Box>
-    </DashboardLayout>
   );
 };
 

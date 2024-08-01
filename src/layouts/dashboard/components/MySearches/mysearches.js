@@ -18,7 +18,6 @@ import DashboardLayout from 'examples/LayoutContainers/DashboardLayout';
             };
             return (
                 <>
-                <DashboardLayout>
                 <SoftBox>
               <SoftBox mb={3} alignItems="left">
                 <WGSearchComponent />
@@ -27,7 +26,6 @@ import DashboardLayout from 'examples/LayoutContainers/DashboardLayout';
                 <PaginatedProfileList />
               </SoftBox>
             </SoftBox>
-            </DashboardLayout>
                 </>
             )
         };

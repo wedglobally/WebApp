@@ -14,23 +14,12 @@ import SoftInput from "components/SoftInput";
 import Breadcrumbs from "examples/Breadcrumbs";
 import NotificationItem from "examples/Items/NotificationItem";
 import logo from "../../../assets/websiteasset/img/Wedglobally_icon.png";
-import {
-  navbar,
-  navbarContainer,
-  navbarRow,
-  navbarIconButton,
-  navbarMobileMenu,
-} from "examples/Navbars/DashboardNavbar/styles";
-import {
-  useSoftUIController,
-  setTransparentNavbar,
-  setMiniSidenav,
-  setOpenConfigurator,
-} from "context";
+import { navbar, navbarContainer, navbarRow, navbarIconButton, navbarMobileMenu } from "examples/Navbars/DashboardNavbar/styles";
+import { useSoftUIController, setTransparentNavbar, setMiniSidenav, setOpenConfigurator } from "context";
 import team2 from "assets/images/team-2.jpg";
 import logoSpotify from "assets/images/small-logos/logo-spotify.svg";
 
-function DashboardNavbar({ absolute, light, isMini }) {
+function DashboardNavbar({ absolute, light, isMini, onToggleDrawer }) {
   const [navbarType, setNavbarType] = useState();
   const [controller, dispatch] = useSoftUIController();
   const { miniSidenav, transparentNavbar, fixedNavbar, openConfigurator } = controller;
@@ -55,7 +44,11 @@ function DashboardNavbar({ absolute, light, isMini }) {
     return () => window.removeEventListener("scroll", handleTransparentNavbar);
   }, [dispatch, fixedNavbar]);
 
-  const handleMiniSidenav = () => setMiniSidenav(dispatch, !miniSidenav);
+  const handleMiniSidenav = () => {
+    setMiniSidenav(dispatch, !miniSidenav);
+    if (onToggleDrawer) onToggleDrawer(!miniSidenav); // Notify parent about drawer state
+  };
+
   const handleConfiguratorOpen = () => setOpenConfigurator(dispatch, !openConfigurator);
   const handleOpenMenu = (event) => setOpenMenu(event.currentTarget);
   const handleCloseMenu = () => setOpenMenu(false);
@@ -108,7 +101,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
         }}
       >
         <SoftBox display="flex" alignItems="center">
-          <IconButton onClick={handleMiniSidenav} color="inherit">
+          <IconButton onClick={() => onToggleDrawer(true)} color="inherit">
             <Icon>{miniSidenav ? "menu_open" : "menu"}</Icon>
           </IconButton>
           <SoftBox display="flex" alignItems="center" ml={2}>
@@ -148,7 +141,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
                 size="small"
                 color="inherit"
                 sx={navbarMobileMenu}
-                onClick={handleMiniSidenav}
+                onClick={() => onToggleDrawer(true)}
               >
                 <Icon className="text-white">{miniSidenav ? "menu_open" : "menu"}</Icon>
               </IconButton>
@@ -190,6 +183,7 @@ DashboardNavbar.propTypes = {
   absolute: PropTypes.bool,
   light: PropTypes.bool,
   isMini: PropTypes.bool,
+  onToggleDrawer: PropTypes.func.isRequired,
 };
 
 export default DashboardNavbar;

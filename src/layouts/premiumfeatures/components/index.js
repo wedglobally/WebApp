@@ -49,7 +49,6 @@ const plans = [
 const PremiumFeatures = () => {
   return (
     <DashboardLayout>
-        <DashboardNavbar/>
     <SoftBox p={3}>
       <SoftTypography variant="h4" fontWeight="bold" mb={2} align="center">
         Premium Features

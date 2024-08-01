@@ -54,7 +54,7 @@ const PaginatedMarketplace = () => {
 
   return (
     <DashboardLayout>
-      <DashboardNavbar />
+  
       <SoftBox mb={3} alignItems="center">
         <SoftBox>
           <Grid container spacing={2}>

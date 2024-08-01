@@ -1,56 +1,33 @@
-/**
-=========================================================
-* WedGlobally React - v4.0.1
-=========================================================
+import React, { useState } from 'react';
+import Box from '@mui/material/Box';
+import TemporaryDrawer from './drawer';
+import DashboardNavbar from 'examples/Navbars/DashboardNavbar';
 
-*/
+const DashboardLayout = ({ children }) => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
-import { useEffect } from "react";
-
-// react-router-dom components
-import { useLocation } from "react-router-dom";
-
-// prop-types is a library for typechecking of props.
-import PropTypes from "prop-types";
-
-// WedGlobally React components
-import SoftBox from "components/SoftBox";
-
-// WedGlobally React context
-import { useSoftUIController, setLayout } from "context";
-
-function DashboardLayout({ children }) {
-  const [controller, dispatch] = useSoftUIController();
-  const { miniSidenav } = controller;
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    setLayout(dispatch, "dashboard");
-  }, [pathname]);
+  const handleToggleDrawer = (open) => {
+    setDrawerOpen(open);
+  };
 
   return (
-    <SoftBox
-      sx={({ breakpoints, transitions, functions: { pxToRem } }) => ({
-        p: 3,
-        position: "relative",
-
-        [breakpoints.up("xl")]: {
-          marginLeft: miniSidenav ? pxToRem(120) : pxToRem(274),
-          transition: transitions.create(["margin-left", "margin-right"], {
-            easing: transitions.easing.easeInOut,
-            duration: transitions.duration.standard,
-          }),
-        },
-      })}
-    >
-      {children}
-    </SoftBox>
+    <Box sx={{ display: 'flex' }}>
+      <TemporaryDrawer open={drawerOpen} onToggleDrawer={handleToggleDrawer} />
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          p: 3,
+          width: '100%',
+          transition: 'margin 0.3s ease',
+          marginLeft: drawerOpen ? '250px' : '0px', // Adjust as needed
+        }}
+      >
+        <DashboardNavbar onToggleDrawer={handleToggleDrawer} />
+        {children}
+      </Box>
+    </Box>
   );
-}
-
-// Typechecking props for the DashboardLayout
-DashboardLayout.propTypes = {
-  children: PropTypes.node.isRequired,
 };
 
 export default DashboardLayout;

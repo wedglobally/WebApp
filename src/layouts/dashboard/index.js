@@ -19,6 +19,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../../src/firebase";
 import ActivitySummary from "./components/ActivitySummary/activitysummary";
 import MySearches from "./components/MySearches/mysearches";
+import PageLayout from "examples/LayoutContainers/PageLayout";
 
 function Dashboard() {
   const [tabsOrientation, setTabsOrientation] = useState("horizontal");
@@ -49,7 +50,7 @@ function Dashboard() {
 
   return (
     <DashboardLayout>
-     <DashboardNavbar /> 
+     {/* <DashboardNavbar />  */}
 
       {/* <Header /> */}
       <SoftBox
