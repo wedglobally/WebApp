@@ -41,7 +41,6 @@ const ProfileOverview = () => {
   return (
     <DashboardLayout>
       {/* <Header /> */}
-      <DashboardNavbar /> 
 
       <SoftBox
         sx={{

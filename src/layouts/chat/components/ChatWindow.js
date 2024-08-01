@@ -43,7 +43,6 @@ const ChatWindow = () => {
 
   return (
     <DashboardLayout>
-        <DashboardNavbar/>
         <Card>
     <Grid container>
       <Grid item xs={9}>

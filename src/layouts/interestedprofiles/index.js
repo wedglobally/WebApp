@@ -17,7 +17,6 @@ export default function ScrollableTabsButtonPrevent() {
 
   return (
     <DashboardLayout>
-        <DashboardNavbar/>
     <SoftBox sx={{ maxWidth: { xs: 320, sm: 480 }, bgcolor: 'background.paper' }}>
       <Tabs
         value={value}

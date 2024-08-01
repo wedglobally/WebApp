@@ -39,7 +39,6 @@ const ServiceDetail = () => {
 
   return (
     <DashboardLayout>
-      <DashboardNavbar />
       <SoftBox mt={3}>
         <Grid container spacing={4}>
           {ads.map((ad) => (
