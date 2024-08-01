@@ -1,32 +1,19 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { Grid, Card, CardContent, Typography } from "@mui/material";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-
+import { Grid, Card, CardContent, Typography, Box, Divider } from "@mui/material";
+import Slider from "react-slick";
 import SoftBox from "components/SoftBox";
-import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-
-import makeupArtist from "../../../../assets/images/Wedglobally/marketplace/makeupArtist.jpg";
-import caterer from "../../../../assets/images/Wedglobally/marketplace/caterer.jpeg";
-import planner from "../../../../assets/images/Wedglobally/marketplace/planner.jpeg";
-import decorator from "../../../../assets/images/Wedglobally/marketplace/Decorator.jpeg";
 
 // Example ad data for each service with 50 items
 const serviceAds = {
   makeupArtist: Array.from({ length: 50 }, (_, i) => ({
     id: i + 1,
     images: [
-      {makeupArtist},
-      {caterer},
-      {planner},
-      {decorator}
+      "https://via.placeholder.com/600x300?text=Makeup+Artist",
+      "https://via.placeholder.com/600x300?text=Caterer",
+      "https://via.placeholder.com/600x300?text=Planner",
+      "https://via.placeholder.com/600x300?text=Decorator"
     ],
     description: `Ad ${i + 1} Description`,
   })),
@@ -37,47 +24,45 @@ const ServiceDetail = () => {
   const { serviceId } = useParams();
   const ads = serviceAds[serviceId] || [];
 
+  const carouselSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  };
+
   return (
     <DashboardLayout>
       <SoftBox mt={3}>
         <Grid container spacing={4}>
           {ads.map((ad) => (
             <Grid item xs={12} key={ad.id}>
-              {/* Each card takes up the full width of the container */}
-              <Card>
+              <Card sx={{ height: '100%' }}>
                 <CardContent>
-                  <Typography variant="h6" gutterBottom>
-                    {ad.description}
+                  <Typography variant="h6" sx={{ mb: 2 }}>
+                    Advertisement
                   </Typography>
-                  <SoftBox mb={2}>
-                    <Swiper
-                      modules={[Navigation, Pagination]}
-                      spaceBetween={10}
-                      slidesPerView={1}
-                      pagination={{ clickable: true }}
-                      navigation
-                      style={{
-                        width: "100%", // Ensures Swiper uses full width of its container
-                        maxWidth: "100%", // Constrains the Swiper width to the card
-                      }}
-                    >
+                  <Divider />
+                  <Box sx={{ mt: 2 }}>
+                    <Slider {...carouselSettings}>
                       {ad.images.map((image, index) => (
-                        <SwiperSlide key={index}>
+                        <Box sx={{ padding: 2 }} key={index}>
                           <img
                             src={image}
                             alt={`Ad ${ad.id} Image ${index + 1}`}
                             style={{
-                              width: "100%", // Ensure images fill the SwiperSlide
-                              height: "auto",
-                              maxWidth: "100%", // Constrain the image within the SwiperSlide
-                              display: "block",
-                              margin: "0 auto", // Center the image
+                              width: '100%',
+                              height: 'auto',
                             }}
                           />
-                        </SwiperSlide>
+                        </Box>
                       ))}
-                    </Swiper>
-                  </SoftBox>
+                    </Slider>
+                  </Box>
                 </CardContent>
               </Card>
             </Grid>
