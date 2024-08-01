@@ -14,13 +14,15 @@ import SoftTypography from 'components/SoftTypography';
 export default function TemporaryDrawer({ open, onToggleDrawer }) {
   const DrawerList = (
     <Box
-      sx={{
+    sx={{
         width: 250,
-        backgroundColor: '#D1A77A',
-        color: '#FFFFFF',
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
+        backdropFilter: 'blur(10px)',
+        boxShadow: '0px 4px 30px rgba(0, 0, 0, 0.1)',
+        backgroundImage: 'linear-gradient(135deg, #e0b15e, #4E8098, #2A3D66)',
+        color: '#FFFFFF',
       }}
       role="presentation"
       onClick={() => onToggleDrawer(false)}
@@ -30,7 +32,7 @@ export default function TemporaryDrawer({ open, onToggleDrawer }) {
           padding: '16px',
           display: 'flex',
           alignItems: 'center',
-          borderBottom: '1px solid #E0B15E',
+          borderBottom: '1px solid rgba(224, 177, 94, 0.5)',
           justifyContent: 'center',
         }}
       >
@@ -38,7 +40,7 @@ export default function TemporaryDrawer({ open, onToggleDrawer }) {
           Menu
         </SoftTypography>
       </Box>
-      <Divider sx={{ borderColor: '#E0B15E' }} />
+      <Divider sx={{ borderColor: 'rgba(224, 177, 94, 0.5)' }} />
       
       <List>
         {routes.map(({ route, name, icon, key }) => (
@@ -55,7 +57,7 @@ export default function TemporaryDrawer({ open, onToggleDrawer }) {
         ))}
       </List>
       
-      <Divider sx={{ borderColor: '#E0B15E' }} />
+      <Divider sx={{ borderColor: 'rgba(224, 177, 94, 0.5)' }} />
       
       <Box
         sx={{
@@ -63,7 +65,7 @@ export default function TemporaryDrawer({ open, onToggleDrawer }) {
           display: 'flex',
           alignItems: 'flex-end',
           padding: '16px',
-          borderTop: '1px solid #E0B15E',
+          borderTop: '1px solid rgba(224, 177, 94, 0.5)',
         }}
       >
         <SoftTypography variant="body2" color="#FFFFFF">
@@ -80,16 +82,17 @@ export default function TemporaryDrawer({ open, onToggleDrawer }) {
       PaperProps={{
         sx: {
           width: 250,
-          backgroundColor: '#D1A77A',
-          color: '#FFFFFF',
-          borderRight: '1px solid #E0B15E',
+          borderRight: '1px solid rgba(224, 177, 94, 0.5)',
+          backdropFilter: 'blur(10px)',
+          boxShadow: '0px 4px 30px rgba(0, 0, 0, 0.1)',
+          backgroundImage: 'linear-gradient(135deg, rgba(224, 177, 94, 0.8) 0%, rgba(209, 167, 122, 0.8) 100%)',
           '& .MuiListItem-root': {
             '& .Mui-selected': {
-              backgroundColor: '#E0B15E !important',
+              backgroundColor: 'rgba(224, 177, 94, 0.7) !important',
               color: '#FFFFFF !important',
             },
             '&:hover': {
-              backgroundColor: '#B08D6C !important',
+              backgroundColor: 'rgba(176, 141, 108, 0.8) !important',
             },
           },
         },
